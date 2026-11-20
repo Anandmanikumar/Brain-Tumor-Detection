@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import MriViewer from "./MriViewer";
 
 type Job = {
   job_id: string;
@@ -179,11 +180,13 @@ export default function Home() {
         </div>}
       </section>
 
+      <MriViewer />
+
       <section className="resultsInfo">
         <div className="sectionHead"><div><div className="eyebrow muted">WORKSPACE / 02</div><h2>What comes next</h2></div></div>
         <div className="featureGrid">
           <article><span>01</span><h3>Segmentation mask</h3><p>Download the predicted NIfTI mask for review in a compatible medical-image viewer.</p></article>
-          <article><span>02</span><h3>Visual review</h3><p>The next iteration can overlay the mask on the original MRI and provide slice navigation.</p></article>
+          <article><span>02</span><h3>Visual review</h3><p>Open the original MRI and matching segmentation mask in the interactive three-plane viewer above.</p></article>
           <article><span>03</span><h3>Evaluation</h3><p>Dice and HD95 require corresponding ground-truth masks; they cannot be inferred from a prediction alone.</p></article>
         </div>
       </section>

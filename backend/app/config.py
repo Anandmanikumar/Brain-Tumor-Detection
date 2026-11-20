@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: str = "http://localhost:3000"
     DATA_ROOT: str = "./data"
     MAX_UPLOAD_MB: int = 600
+    INFERENCE_MODE: str = "mock"
     NNUNET_COMMAND_TEMPLATE: str = "[]"
     INFERENCE_TIMEOUT_SECONDS: int = 3600
 

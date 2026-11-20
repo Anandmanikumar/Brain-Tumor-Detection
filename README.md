@@ -149,3 +149,25 @@ Not included yet:
 5. If the backend process restarts, in-memory job status is lost. This is acceptable only for an initial demo; production needs persistent job storage/queue.
 6. Keep uploads private and remove data when no longer needed.
 7. Label all outputs as experimental AI assistance requiring qualified radiologist review.
+
+## Interactive MRI viewer
+
+The frontend now includes a browser-based NIfTI viewer powered by Niivue. It accepts an original MRI volume and a corresponding segmentation mask (`.nii` or `.nii.gz`) and provides axial, coronal, and sagittal views plus mask-opacity control. Files selected in this viewer are opened locally in the browser; this viewer does not upload them.
+
+The overlay is meaningful only when the mask and MRI share the same physical space, orientation, affine, dimensions, and voxel spacing. Verify those properties before interpreting a displayed overlay. The viewer is a research visualization, not a clinical diagnostic tool.
+
+### Install the viewer dependency
+
+From the `frontend` directory run:
+
+```powershell
+npm.cmd install
+```
+
+This installs `@niivue/niivue` and synchronizes `package-lock.json`. Then start the app:
+
+```powershell
+npm.cmd run dev
+```
+
+After deployment, push the updated source and lockfile to GitHub so Vercel can rebuild the frontend.
